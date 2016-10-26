@@ -2,10 +2,18 @@ import React from 'react';
 import { Page, Toolbar, Button, Carousel, CarouselItem } from 'react-onsenui';
 import DetailPage from './detailPage';
 import { connect } from 'react-redux';
+import { SET_DATA } from '../actions/actionTypes';
+import actionCreator from '../actions/actionCreator';
 
 const MainPage = ({ navigator, dispatch, datas }) => {
+
+    console.log('MainPage');
+    console.log('navigator', navigator);
+    console.log('dispatch', dispatch);
+    console.log('datas', datas);
+
     let pushPage = () => {
-        navigator.pushPage({ component: detailPage, animation: 'slide'});
+        navigator.pushPage({ component: DetailPage, animation: 'slide'});
     }
 
     let setData = (e, item) => {
@@ -32,7 +40,22 @@ const MainPage = ({ navigator, dispatch, datas }) => {
         </Page>
     )
 }
-export default connect()(MainPage);
+function mapStateToProps(state) {
+    return {
+        datas: state.dates
+    }
+}
+
+function mapDispacthToProps(dispatch) {
+    return {
+        dispatch
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispacthToProps
+)(MainPage);
 // class MainPage extends React.Component {
 //     constructor() {
 //         super();

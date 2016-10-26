@@ -55,5 +55,3 @@ export default connect()(DetailPage);
 //         )
 //     }
 // }
-
-export default DetailPage;

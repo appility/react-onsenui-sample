@@ -13,16 +13,20 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_DATA:
+            console.log('UPDATE_DATA', action);
             return Object.assign({}, state, {
                 datas: action.payload
             })
             break;
         case SET_DATA:
+            console.log('SET_DATA', action);
             return Object.assign({}, state, {
-                id: action.id,
-                title: action.title,
-                thumbnail: action.thumbnail,
-                source: action.source
+                setData: {
+                    id: action.id,
+                    title: action.title,
+                    thumbnail: action.thumbnail,
+                    source: action.source
+                }
             })
         default:
             return state;

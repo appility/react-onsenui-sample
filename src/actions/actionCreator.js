@@ -1,4 +1,4 @@
-export function actionCreator(type, payload = {}) {
+export default function actionCreator(type, payload = {}) {
     return {
         type,
         payload
