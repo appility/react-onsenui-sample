@@ -10,7 +10,7 @@ const initialState = {
     }
 };
 
-const rootReducer = (state = initialState, action) => {
+const rootReducer = (state, action) => {
     switch (action.type) {
         case UPDATE_DATA:
             console.log('UPDATE_DATA', action);

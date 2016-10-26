@@ -18,7 +18,7 @@ const initialState = {
     }
 };
 
-let store = configureStore({});
+let store = configureStore(initialState);
 
 ReactDOM.render(
     <Provider store={store}>

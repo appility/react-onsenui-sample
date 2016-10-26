@@ -32,7 +32,7 @@ const MainPage = ({ navigator, dispatch, datas }) => {
                 {
                     datas.map(data => {
                         <CarouselItem>
-                            <ListItem data={data.list} />
+                            {data.count}
                         </CarouselItem>
                     })
                 }
@@ -40,13 +40,15 @@ const MainPage = ({ navigator, dispatch, datas }) => {
         </Page>
     )
 }
-function mapStateToProps(state) {
+
+const mapStateToProps = (state) => {
+    console.log('mapStateToProps', state);
     return {
-        datas: state.dates
+        datas: state.datas
     }
 }
 
-function mapDispacthToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
         dispatch
     }
@@ -54,7 +56,7 @@ function mapDispacthToProps(dispatch) {
 
 export default connect(
     mapStateToProps,
-    mapDispacthToProps
+    mapDispatchToProps
 )(MainPage);
 // class MainPage extends React.Component {
 //     constructor() {
