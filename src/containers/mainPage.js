@@ -5,21 +5,10 @@ import { connect } from 'react-redux';
 import { SET_DATA } from '../actions/actionTypes';
 import actionCreator from '../actions/actionCreator';
 
-const MainPage = ({ navigator, dispatch, datas }) => {
+const MainPage = ({ navigator, datas }) => {
 
     console.log('MainPage');
-    console.log('navigator', navigator);
-    console.log('dispatch', dispatch);
     console.log('datas', datas);
-
-    let pushPage = () => {
-        navigator.pushPage({ component: DetailPage, animation: 'slide'});
-    }
-
-    let setData = (e, item) => {
-        e.preventDefault();
-        dispatch(actionCreator(SET_DATA, item));
-    }
 
     return (
         <Page>
@@ -30,34 +19,23 @@ const MainPage = ({ navigator, dispatch, datas }) => {
             </Toolbar>
             <Carousel fullscreen swipeable autoScroll overscrollable style={{marginTop: 44 + 'px'}}>
                 {
-                    datas.map(data => {
-                        <CarouselItem>
+                    datas.map(data =>
+                        <CarouselItem key={data.count}>
                             {data.count}
                         </CarouselItem>
-                    })
+                    )
                 }
             </Carousel>
         </Page>
     )
 }
-
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps', state);
     return {
         datas: state.datas
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        dispatch
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(MainPage);
+export default connect(mapStateToProps)(MainPage);
 // class MainPage extends React.Component {
 //     constructor() {
 //         super();

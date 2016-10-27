@@ -2,7 +2,7 @@ import { UPDATE_DATA, SET_DATA, API_ERROR } from '../actions/actionTypes';
 
 const initialState = {
     datas: [],
-    setData: {
+    detail: {
         id: 0,
         title: '',
         thumbnail: '',
@@ -10,7 +10,7 @@ const initialState = {
     }
 };
 
-const rootReducer = (state, action) => {
+const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_DATA:
             console.log('UPDATE_DATA', action);
@@ -21,7 +21,7 @@ const rootReducer = (state, action) => {
         case SET_DATA:
             console.log('SET_DATA', action);
             return Object.assign({}, state, {
-                setData: {
+                detail: {
                     id: action.id,
                     title: action.title,
                     thumbnail: action.thumbnail,

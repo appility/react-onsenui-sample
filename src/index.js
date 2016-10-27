@@ -10,7 +10,7 @@ import 'onsenui/css/onsen-css-components.css';
 
 const initialState = {
     datas: [],
-    setData: {
+    detail: {
         id: 0,
         title: '',
         thumbnail: '',
