@@ -4,11 +4,12 @@ import DetailPage from './detailPage';
 import { connect } from 'react-redux';
 import { SET_DATA } from '../actions/actionTypes';
 import actionCreator from '../actions/actionCreator';
+import List from '../components/listItem';
 
 const MainPage = ({ navigator, datas }) => {
 
     console.log('MainPage');
-    console.log('datas', datas);
+    console.log('datas: ', datas);
 
     return (
         <Page>
@@ -21,7 +22,11 @@ const MainPage = ({ navigator, datas }) => {
                 {
                     datas.map(data =>
                         <CarouselItem key={data.count}>
-                            {data.count}
+                            {
+                                data.list.map((list, idx) =>
+                                    <List key={idx} item={list} />
+                                )
+                            }
                         </CarouselItem>
                     )
                 }
