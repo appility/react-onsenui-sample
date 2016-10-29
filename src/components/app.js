@@ -7,12 +7,13 @@ import actionCreator from '../actions/actionCreator';
 
 class App extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        console.log('props ', this.props);
         this.renderPage = this.renderPage.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.dispatch(actionCreator(FETCH_EVENT));
     }
 
