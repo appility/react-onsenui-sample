@@ -32,6 +32,7 @@ const MainPage = ({ navigator, dispatch, datas }) => {
                 {
                     datas.map(data => {
                         <CarouselItem>
+                            hhhhhhhhhhhh
                             {data.count}
                         </CarouselItem>
                     })
