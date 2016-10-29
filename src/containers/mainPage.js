@@ -6,10 +6,14 @@ import { SET_DATA } from '../actions/actionTypes';
 import actionCreator from '../actions/actionCreator';
 import List from '../components/listItem';
 
-const MainPage = ({ navigator, datas }) => {
+const MainPage = ({ navigator, datas, dispatch }) => {
 
     console.log('MainPage');
     console.log('datas: ', datas);
+    
+    let handleChange = (e) => {
+        console.log('handleChange', e);
+    }
 
     return (
         <Page>
@@ -18,13 +22,21 @@ const MainPage = ({ navigator, datas }) => {
                     Start Up News
                 </div>
             </Toolbar>
-            <Carousel fullscreen swipeable autoScroll overscrollable style={{marginTop: 44 + 'px'}}>
+            <Carousel onPostChange={handleChange} fullscreen swipeable autoScroll overscrollable style={{marginTop: 44 + 'px'}}>
                 {
                     datas.map(data =>
                         <CarouselItem key={data.count}>
                             {
                                 data.list.map((list, idx) =>
-                                    <List key={idx} item={list} />
+                                    <List
+                                     key={idx}
+                                     item={list}
+                                     clickHandler={(item) => {
+                                         console.log('clickHandler', item);
+                                         dispatch(actionCreator(SET_DATA, item));
+                                         navigator.pushPage({component: DetailPage, animation: 'slide', title: "DetailPage"});
+                                     }}
+                                    />
                                 )
                             }
                         </CarouselItem>

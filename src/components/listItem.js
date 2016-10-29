@@ -1,7 +1,7 @@
 import React from 'react';
 
-let List = ({ item }) => {
-    console.log('listItem', item);
+let List = ({ item, clickHandler }) => {
+
     return (
         <div className="list-item">
             <figure>
@@ -9,7 +9,10 @@ let List = ({ item }) => {
             </figure>
             <h1> {item.title} </h1>
             <p> {item.source} </p>
-            <a href="#" className="list-cover" />
+            <a href="#" className="list-cover" onClick={(e) => {
+                e.preventDefault();
+                clickHandler({item});
+            }} />
         </div>
     )
 }

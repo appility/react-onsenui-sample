@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
+import './styles/style.css';
 
 const initialState = {
     datas: [],

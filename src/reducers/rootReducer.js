@@ -22,10 +22,10 @@ const rootReducer = (state = initialState, action) => {
             console.log('SET_DATA', action);
             return Object.assign({}, state, {
                 detail: {
-                    id: action.id,
-                    title: action.title,
-                    thumbnail: action.thumbnail,
-                    source: action.source
+                    id: action.payload.item.id,
+                    title: action.payload.item.title,
+                    thumbnail: action.payload.item.thumbnail,
+                    source: action.payload.item.source
                 }
             })
         default:
